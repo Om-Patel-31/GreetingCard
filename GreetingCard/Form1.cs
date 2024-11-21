@@ -55,10 +55,10 @@ namespace GreetingCard
             g.FillEllipse(brush, 349, 523, 8, 10);
             //middle
             g.FillRectangle(brush, 365, 520, 7, 40);
-            g.FillEllipse(brush, 349, 523, 8, 10);
+            g.FillEllipse(brush, 364, 518, 8, 10);
             //ring
-            g.FillRectangle(brush, 380, 530, 7, 30);
-            g.FillEllipse(brush, 349, 523, 8, 10);
+            g.FillRectangle(brush, 380, 527, 7, 33);
+            g.FillEllipse(brush, 379, 523, 8, 10);
             //pinky
             g.FillRectangle(brush, 393, 540, 7, 25);
             g.FillEllipse(brush, 392, 533, 8, 10);
@@ -66,6 +66,13 @@ namespace GreetingCard
             pen.Color = Color.FromArgb(255, 40, 40, 40);
             g.DrawLine(pen, 335, 570, 355, 595);
             g.FillEllipse(brush, 330, 566, 10, 10);
+            //arm length
+            g.FillRectangle(brush, 360, 600, 30, 50);
+        }
+
+        private void Form1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
