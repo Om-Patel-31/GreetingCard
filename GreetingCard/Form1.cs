@@ -46,7 +46,7 @@ namespace GreetingCard
             //drawing text on gravestone
             font = new Font("Midnight Minutes", 60);
             g.DrawString("RIP", font, brush, 295, 430);
-            
+
             //drawing hand on gravestone
             g.FillRectangle(brush, 350, 560, 50, 40);
             // Fingers
@@ -72,7 +72,48 @@ namespace GreetingCard
 
         private void Form1_Click(object sender, EventArgs e)
         {
+            Graphics g = this.CreateGraphics();
 
+            //declaring pen, brush and font
+            Pen pen = new Pen(Color.White, 10);
+            SolidBrush brush = new SolidBrush(Color.White);
+            Font font = new Font("October Crow", 60);
+
+            //Clearing the screen
+            Refresh();
+            g.Clear(Color.FromArgb(255, 40, 40, 40));
+
+            //drawing halloween greeting
+            g.DrawString("Happy Halloween!", font, brush, 80, 50);
+
+            //drawing pumpkin
+            brush.Color = Color.FromArgb(255, 255, 98, 0);
+            g.FillEllipse(brush, 260, 580, 70, 140);
+            g.FillEllipse(brush, 380, 580, 70, 140);
+            brush.Color = Color.FromArgb(255, 255, 111, 0);
+            g.FillEllipse(brush, 355, 580, 70, 145);
+            g.FillEllipse(brush, 285, 580, 70, 145);
+            brush.Color = Color.FromArgb(255, 255, 135, 7);
+            g.FillEllipse(brush, 320, 580, 70, 150);
+            pen.Width = 20;
+            pen.Color = Color.FromArgb(255, 4, 125, 0);
+            brush.Color = Color.FromArgb(255, 4, 125, 0);
+            g.DrawLine(pen, 355, 590, 355, 550);
+            g.FillPie(brush, 320, 564, 70, 30, 45, 90);
+
+            //making pumpkin's expression
+            brush.Color = Color.Black;
+            //right eye
+            g.FillPie(brush, 290, 600, 50, 50, 50, 180);
+            //left eye
+            g.FillPie(brush, 370, 600, 50, 50, -50, 180);
+            //nose
+            g.FillPie(brush, 330, 620, 50, 40, 60, 65);
+            //mouth
+            g.FillPie(brush, 320, 640, 70, 70, 0, 180);
+            brush.Color = Color.FromArgb(255, 255, 135, 7);
+            g.FillRectangle(brush, 335, 670, 13, 13);
+            g.FillRectangle(brush, 360, 670, 13, 13);
         }
     }
 }
