@@ -89,5 +89,8 @@
   <ItemGroup>
     <None Include="Resources\classic-ghost-sound-95773.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
