@@ -112,12 +112,13 @@ namespace GreetingCard
             SolidBrush brush = new SolidBrush(Color.White);
             Font font = new Font("Trebuchet MS", 60);
 
-            //sound player
+            ////sound player
+            SoundPlayer treatPlayer = new SoundPlayer(Properties.Resources.halloweenTreat);
             SoundPlayer ghostPlayer = new SoundPlayer(Properties.Resources.ghost);
-            SoundPlayer batPlayer = new SoundPlayer(Properties.Resources.batVoice);
-            SoundPlayer catPlayer = new SoundPlayer(Properties.Resources.catVoice);
 
-            //Clearing the screen
+            SoundPlayer batPlayer = new SoundPlayer(Properties.Resources.batVoice);
+
+            ////Clearing the screen
             Refresh();
             g.Clear(Color.FromArgb(255, 40, 40, 40));
 
@@ -179,6 +180,8 @@ namespace GreetingCard
             g.FillEllipse(brush, 345, 393, 15, 15);
             g.FillEllipse(brush, 365, 389, 15, 15);
             g.FillEllipse(brush, 383, 385, 15, 15);
+
+            treatPlayer.Play();
 
             //making it sleep before tricking them
             Thread.Sleep(3000);
@@ -245,6 +248,7 @@ namespace GreetingCard
             g.FillPie(brush, leftEyeX, 330, 40, 40, -50, 180); //ghost left eye
             g.FillEllipse(brush, mouthX, 370, 30, 40); //ghost mouth
 
+            Thread.Sleep(100);
             ghostPlayer.Play();
             //while loop for animating pumpkin and ghost
             while ((mainCircleX > 20) && (mainRectangleX > 20) && (whiteCircle1X > 20) && (whiteCircle2X > 20) && (whiteCircle3X > 20) && (grayCircle1X > 20) && (grayCircle2X > 20) && (rightEyeX > 20) && (leftEyeX > 20) && (mouthX > 20))
@@ -341,19 +345,33 @@ namespace GreetingCard
 
             brush.Color = Color.White;
             font = new Font("Midnight Minutes", 80);
-            g.DrawString("Happy", font, brush, 210, 200);
-            g.DrawString("Halloween", font, brush, 150, 320);
-
-
-            //cat
-            brush.Color = Color.Black;
-            catPlayer.Play();
-            //right ear
-            g.FillPie(brush, 615, 470, 125, 125, 100, 175);
-            g.FillPie(brush, 630, 470, 50, 115, 100, -175);
-            g.FillRectangle(brush, 500, 500, 175, 100);
+            g.DrawString("Happy", font, brush, 210, 250);
+            g.DrawString("Halloween", font, brush, 150, 370);
 
             //bat
+            brush.Color = Color.Black;
+            //face
+            g.FillEllipse(brush, 80, 50, 25, 25);
+            //ear (left)
+            g.FillEllipse(brush, 77, 43, 10, 20);
+            //ear (right)
+            g.FillEllipse(brush, 97, 43, 10, 20);
+            //body
+            g.FillEllipse(brush, 77, 70, 30, 40);
+            g.FillPie(brush, 77, 95, 30, 40, 220, 100);
+            //wing (left)
+            g.FillEllipse(brush, 10, 60, 90, 30);
+            brush.Color = Color.FromArgb(255, 40, 40, 40);
+            g.FillEllipse(brush, 7, 75, 20, 15);
+            g.FillEllipse(brush, 27, 80, 25, 15);
+            g.FillEllipse(brush, 55, 85, 23, 15);
+            //wing (right)
+            brush.Color = Color.Black;
+            g.FillEllipse(brush, 80, 60, 90, 30);
+            brush.Color = Color.FromArgb(255, 40, 40, 40);
+            g.FillEllipse(brush, 152, 75, 20, 15);
+            g.FillEllipse(brush, 129, 80, 25, 15);
+            g.FillEllipse(brush, 105, 85, 23, 15);
             batPlayer.Play();
         }
     }
